@@ -4,7 +4,7 @@
  📚 LEARN: Axios Instance
  
  Instead of writing the full URL every time:
-   axios.get('http://localhost:8080/api/ponds')
+   axios.get(`${import.meta.env.VITE_API_BASE_URL}/ponds`)
  
  We create a pre-configured instance:
    api.get('/ponds')
@@ -22,7 +22,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
   headers: {
     'Content-Type': 'application/json',
   },
